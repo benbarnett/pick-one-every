@@ -12,7 +12,7 @@
 
 {#each $options as option, i}
   <div>
-    <input placeholder="What needs to be done?" bind:value={option.text} />
+    <input placeholder="Option to be picked?" bind:value={option.text} />
     <button
       disabled={$options.length === 1}
       on:click={() => {

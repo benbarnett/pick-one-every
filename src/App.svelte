@@ -37,7 +37,7 @@
 <main>
   {#if mode === "edit"}
     <div class="content">
-      <h1>Randomly pick one of these things:</h1>
+      <h1>Randomly pick one of these:</h1>
       <List />
 
       <h2>Every...</h2>
@@ -109,6 +109,10 @@
     border: none;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     border-radius: 3px;
+  }
+
+  :global(*:focus) {
+    outline: 2px solid #bbdbb4;
   }
 
   button.large {
