@@ -34,7 +34,9 @@
   </div>
 {/each}
 
-<button on:click={add}>Add new</button>
+<button on:click={add} disabled={$options[$options.length - 1]?.text === ""}
+  >Add new
+</button>
 
 <style>
   button {
