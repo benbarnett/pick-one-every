@@ -103,23 +103,12 @@
     grid-area: cta;
     align-self: flex-end;
   }
-
-  .columns {
-    display: flex;
-    max-width: 60%;
-    margin: 0 auto;
-  }
-  .column {
-    flex: 1 1 50%;
-    justify-content: flex-start;
-  }
-
   h1,
   h2 {
     color: #fcf0cc;
     text-transform: uppercase;
     font-size: 3em;
-    margin: 1em 0 1em;
+    margin: 1em 0 0.5em;
   }
 
   h2 {
@@ -149,8 +138,18 @@
   }
 
   @media (min-width: 640px) {
-    main {
-      max-width: none;
+    h1,
+    h2 {
+      margin-bottom: 1em;
+    }
+    .columns {
+      display: flex;
+      max-width: 60%;
+      margin: 0 auto;
+    }
+    .column {
+      flex: 1 1 50%;
+      justify-content: flex-start;
     }
   }
 </style>
