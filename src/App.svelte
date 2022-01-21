@@ -23,6 +23,7 @@
 
   let seconds = 2;
   let mode = "edit";
+  let limit = "forever";
 </script>
 
 <svelte:head>
@@ -40,16 +41,29 @@
       <h1>Randomly pick one of these:</h1>
       <List />
 
-      <h2>Every...</h2>
-      <Frequency bind:seconds />
+      <div class="columns">
+        <div class="column">
+          <h2>Every:</h2>
+          <Frequency bind:seconds />
+        </div>
+
+        <div class="column">
+          <h2>Until:</h2>
+
+          <select bind:value={limit}>
+            <option value="forever">Forever</option>
+            <option value="once">Each has been picked once</option>
+          </select>
+        </div>
+      </div>
     </div>
 
     <div class="cta">
       <button on:click={() => (mode = "view")} class="large">GO!</button>
     </div>
   {:else}
-    <div class="content">
-      <Picker interval={seconds * 1000} />
+    <div class="content picker">
+      <Picker interval={seconds * 1000} {limit} />
     </div>
     <div class="cta">
       <button on:click={() => (mode = "edit")}>Change options</button>
@@ -79,12 +93,24 @@
 
   .content {
     grid-area: content;
-    align-self: center;
   }
 
+  .picker {
+    align-self: center;
+  }
   .cta {
     grid-area: cta;
     align-self: flex-end;
+  }
+
+  .columns {
+    display: flex;
+    max-width: 60%;
+    margin: 0 auto;
+  }
+  .column {
+    flex: 1 1 50%;
+    justify-content: flex-start;
   }
 
   h1,

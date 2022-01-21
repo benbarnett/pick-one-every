@@ -3,6 +3,7 @@
   import { options as optionsStore } from "./stores";
 
   export let interval = 1000;
+  export let limit = "forever";
 
   let options = [];
   optionsStore.subscribe(
@@ -18,7 +19,16 @@
   let pickedItem = newBallsPlease();
 
   function newBallsPlease() {
-    return options[Math.floor(Math.random() * options.length)];
+    if (limit === "forever") {
+      return options[Math.floor(Math.random() * options.length)];
+    } else if (limit === "once") {
+      if (options.length > 0) {
+        return options.splice(Math.floor(Math.random() * options.length), 1);
+      } else {
+        cancelAnimationFrame(frame);
+        return "ALL DONE!";
+      }
+    }
   }
 
   (function update() {
