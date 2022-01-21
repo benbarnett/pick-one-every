@@ -1,15 +1,14 @@
 <script>
-    export let seconds;
+  export let seconds;
 </script>
 
 <div>
-    <input
-        placeholder="What needs to be done?"
-        bind:value={seconds}
-    >
-    seconds
+  <input placeholder="how many?" bind:value={seconds} />
+  seconds
 </div>
 
 <style>
-    input { max-width: 100px; }
+  input {
+    max-width: 100px;
+  }
 </style>
