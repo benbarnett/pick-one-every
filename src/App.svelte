@@ -25,6 +25,15 @@
   let mode = "edit";
 </script>
 
+<svelte:head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Outfit:wght@300&display=swap"
+    rel="stylesheet"
+  />
+</svelte:head>
+
 <main>
   {#if mode === "edit"}
     <h1>Randomly pick one of these things:</h1>
@@ -43,6 +52,9 @@
 </main>
 
 <style>
+  * {
+    font-family: "Outfit", sans-serif;
+  }
   :global(body) {
     background: #861657;
     color: white;
@@ -55,12 +67,9 @@
 
   h1,
   h2 {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     color: #fcf0cc;
     text-transform: uppercase;
     font-size: 3em;
-    font-weight: 300;
     margin: 1em 0 1em;
   }
 
@@ -77,10 +86,13 @@
     font-weight: bold;
     border: none;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
   }
 
   button.large {
     font-size: 2em;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
   @media (min-width: 640px) {

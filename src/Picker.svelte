@@ -72,45 +72,23 @@
   progress {
     appearance: none;
     width: 100%;
-    /* background-color: orange; */
-    border-radius: 3px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5) inset;
-    /* color: blue; */
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
   }
 
   progress[value]::-webkit-progress-bar {
-    background-color: whiteSmoke;
-    border-radius: 3px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5) inset;
+    background-color: #861657;
+    border: 0;
   }
 
   progress[value]::-webkit-progress-value {
     position: relative;
-
-    background-size: 35px 20px, 100% 100%, 100% 100%;
-    border-radius: 3px;
-
-    /* Let's animate this */
-    animation: animate-stripes 5s linear infinite;
-  }
-
-  @keyframes animate-stripes {
-    100% {
-      background-position: -100px 0;
-    }
   }
 
   ::-webkit-progress-value {
-    /* Gradient background with Stripes */
-    background-image: -webkit-linear-gradient(
-        135deg,
-        transparent,
-        transparent 33%,
-        rgba(0, 0, 0, 0.1) 33%,
-        rgba(0, 0, 0, 0.1) 66%,
-        transparent 66%
-      ),
-      -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
-      -webkit-linear-gradient(left, #d56aa0, #a64253);
+    background-color: #d56aa0;
   }
 </style>
