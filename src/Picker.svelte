@@ -51,7 +51,7 @@
   h3 {
     color: #fcf0cc;
     text-transform: uppercase;
-    font-size: 10vh;
+    font-size: 10vmax;
     font-weight: 100;
     align-self: center;
     overflow-wrap: break-word;

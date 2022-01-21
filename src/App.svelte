@@ -38,11 +38,9 @@
   {#if mode === "edit"}
     <div class="content">
       <h1>Randomly pick one of these things:</h1>
-
       <List />
 
       <h2>Every...</h2>
-
       <Frequency bind:seconds />
     </div>
 
