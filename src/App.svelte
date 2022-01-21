@@ -23,7 +23,7 @@
 
   let seconds = 2;
   let mode = "edit";
-  let limit = "forever";
+  let limit = "once";
 </script>
 
 <svelte:head>
@@ -52,8 +52,8 @@
           <h2>Until:</h2>
 
           <select bind:value={limit}>
-            <option value="forever">Forever</option>
             <option value="once">Each has been picked once</option>
+            <option value="forever">Forever</option>
           </select>
         </div>
       </div>
