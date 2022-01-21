@@ -41,23 +41,13 @@
   });
 </script>
 
-<article>
-  <label>
-    <progress value={elapsed / interval} class="html5" />
-  </label>
+<label>
+  <progress value={elapsed / interval} class="html5" />
+</label>
 
-  <h3>{pickedItem}</h3>
-</article>
+<h3>{pickedItem}</h3>
 
 <style>
-  article {
-    display: grid;
-    height: 75vh;
-    grid-template-rows: auto 100%;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
   h3 {
     color: #fcf0cc;
     text-transform: uppercase;

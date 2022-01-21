@@ -36,18 +36,26 @@
 
 <main>
   {#if mode === "edit"}
-    <h1>Randomly pick one of these things:</h1>
+    <div class="content">
+      <h1>Randomly pick one of these things:</h1>
 
-    <List />
+      <List />
 
-    <h2>Every...</h2>
+      <h2>Every...</h2>
 
-    <Frequency bind:seconds />
+      <Frequency bind:seconds />
+    </div>
 
-    <button on:click={() => (mode = "view")} class="large">GO!</button>
+    <div class="cta">
+      <button on:click={() => (mode = "view")} class="large">GO!</button>
+    </div>
   {:else}
-    <Picker interval={seconds * 1000} />
-    <button on:click={() => (mode = "edit")}>Change options</button>
+    <div class="content">
+      <Picker interval={seconds * 1000} />
+    </div>
+    <div class="cta">
+      <button on:click={() => (mode = "edit")}>Change options</button>
+    </div>
   {/if}
 </main>
 
@@ -61,8 +69,24 @@
   }
   main {
     text-align: center;
-    padding: 1em;
+    padding: 0 1em;
+    height: 100%;
     margin: 0 auto;
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    grid-template-areas:
+      "content"
+      "cta";
+  }
+
+  .content {
+    grid-area: content;
+    align-self: center;
+  }
+
+  .cta {
+    grid-area: cta;
+    align-self: flex-end;
   }
 
   h1,
