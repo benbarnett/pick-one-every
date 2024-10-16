@@ -18,7 +18,9 @@
 
   let pickedItem = newBallsPlease();
 
-  function newBallsPlease() {
+  let audio = new Audio("chime.mp3");
+
+  function newBallsPlease() {    
     if (limit === "forever") {
       return options[Math.floor(Math.random() * options.length)];
     } else if (limit === "once") {
@@ -39,6 +41,8 @@
     elapsed += Math.min(time - last_time, interval - elapsed);
 
     if (elapsed >= interval) {
+      audio.currentTime = 0;
+      audio.play();
       pickedItem = newBallsPlease();
       elapsed = 0;
     }
