@@ -1,5 +1,5 @@
 <script>
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import { options as optionsStore } from "./stores";
 
   export let interval = 1000;
@@ -50,9 +50,37 @@
     last_time = time;
   })();
 
-  onDestroy(() => {
-    cancelAnimationFrame(frame);
-  });
+  let wakeLock;
+
+  async function keepScreenAwake() {
+       try {
+          wakeLock = await navigator.wakeLock.request("screen");
+
+          document.addEventListener("visibilitychange", handleVisibilityChange);
+       } catch (err) {
+            console.error("Wake Lock error:", err);
+        }
+    }
+
+    async function handleVisibilityChange() {
+        if (wakeLock !== null && document.visibilityState === "visible") {
+            wakeLock = await navigator.wakeLock.request("screen");
+        }
+    }
+
+    onMount(() => {
+        keepScreenAwake();
+    });
+
+    onDestroy(() => {
+        cancelAnimationFrame(frame);
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+            if (wakeLock) {
+                wakeLock.release();
+                wakeLock = null;
+            }
+        });
+     });
 </script>
 
 <label>
