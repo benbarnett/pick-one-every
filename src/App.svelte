@@ -63,8 +63,9 @@
 
     <div class="cta">
       <button on:click={() => {
-         mode = "view"
-         videoElement.play()
+         mode = "view";
+         videoElement.play();
+         document.documentElement.requestFullscreen?.();
        }} class="large">GO!</button>
     </div>
   {:else}
