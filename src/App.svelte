@@ -78,7 +78,7 @@
 </main>
 
 <video bind:this={videoElement} loop autoplay muted playsinline style="display:none;">  
-  <source src="video.mp4" type="video/mp4">
+  <source src="coverr-grass-in-the-windy-weather-1578-1080p.mp4" type="video/mp4">
 </video>
 
 <style>
