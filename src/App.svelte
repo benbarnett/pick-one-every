@@ -24,6 +24,8 @@
   let seconds = 2;
   let mode = "edit";
   let limit = "once";
+
+  let videoElement;
 </script>
 
 <svelte:head>
@@ -60,7 +62,10 @@
     </div>
 
     <div class="cta">
-      <button on:click={() => (mode = "view")} class="large">GO!</button>
+      <button on:click={() => {
+         mode = "view"
+         videoElement.play()
+       }} class="large">GO!</button>
     </div>
   {:else}
     <div class="content picker">
@@ -71,6 +76,10 @@
     </div>
   {/if}
 </main>
+
+<video bind:this={videoElement} loop autoplay muted playsinline style="display:none;">  
+  <source src="video.mp4" type="video/mp4">
+</video>
 
 <style>
   * {
