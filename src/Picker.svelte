@@ -75,12 +75,12 @@
     onDestroy(() => {
         cancelAnimationFrame(frame);
         document.removeEventListener("visibilitychange", handleVisibilityChange);
-            if (wakeLock) {
-                wakeLock.release();
-                wakeLock = null;
-            }
-        });
-     });
+        if (wakeLock) {
+            wakeLock.release();
+            wakeLock = null;
+       }
+    });
+    
 </script>
 
 <label>
